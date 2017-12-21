@@ -18,7 +18,7 @@ public class MyFilter implements Filter {
 	
 	public void init(FilterConfig arg0) throws ServletException {  
 		//Aby mi to vypisovalo informace na konsoli, musím mít ve zdrojích log4j.xlm!!
-		log.info("Ted se inicializuje Filter");
+		log.info("Ted se mi OPRAVDU inicializuje Filter");
 	}
 	
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {  
