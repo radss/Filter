@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<web-app version="2.5"   
+    xmlns="http://java.sun.com/xml/ns/javaee"   
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee   
+    http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    
+ <!-- Definice abych mohl servlet (pojmenovaný jako spring) použít -->     
+ <servlet>  
+    <servlet-name>spring</servlet-name>  
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>  
+    <load-on-startup>1</load-on-startup>  
+</servlet>  
+
+<servlet-mapping>  
+    <servlet-name>spring</servlet-name> 
+    <url-pattern>*.html</url-pattern>  
+</servlet-mapping>  
+
+
+ <!-- Definice abych mohl servlet (pojmenovaný jako spring) použít -->     
+ <servlet>  
+    <servlet-name>s1</servlet-name>  
+    <servlet-class>fajfr.filter.servlet.HelloServlet</servlet-class>  
+    <load-on-startup>2</load-on-startup>  
+</servlet>  
+
+<servlet-mapping>  
+    <servlet-name>s1</servlet-name> 
+    <url-pattern>/HelloServlet</url-pattern>  
+</servlet-mapping> 
+
+<!-- definuju filter pojmenovaný jako f1.  -->
+<filter>  
+	<filter-name>f1</filter-name>  
+	<filter-class>fajfr.filter.testFilter.MyFilter</filter-class>  
+</filter>  
+ 
+ <!-- url pattern /HelloServlet je stejný pro f1 stejně jako
+  v definici pro servlet s1 (HelloServlet.java
+  výše  
+  -->
+ <!-- volně mohu říci, že pokud po kliknutí na odkaz v index.jsp dostanu na 
+ adresu /HelloServlet tak spustím servlet pojmenovaný s1 a také filtr f1
+ -->  
+<filter-mapping>  
+	<filter-name>f1</filter-name>  
+	<url-pattern>/HelloServlet</url-pattern>  
+</filter-mapping> 
+
+
+</web-app>  
